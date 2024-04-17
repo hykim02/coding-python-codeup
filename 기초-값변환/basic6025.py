@@ -1,3 +1,5 @@
-a, b = input("정수 2개를 입력하시오:").split()
+# 정수 2개 입력받아 합 계산하기
+
+a, b = input().split()
 c = int(a) + int(b)
 print(c)
