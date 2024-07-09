@@ -3,7 +3,10 @@
 num = int(input())
 
 for i in range(1, num+1):
-    if (i % 10 == 3):
-        print("X", end = '')
+    rest = i % 10 # 나머지
+    if (rest == 0):
+        print(i, end = ' ')
+    elif (rest % 3 == 0):
+        print("X", end = ' ')
     else:
-        print(i)
+        print(i, end = ' ')
