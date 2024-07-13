@@ -4,13 +4,12 @@ a = []
 
  # 바둑알이 깔려 있는 상황이 19 * 19 크기의 정수값으로 입력
 for i in range(19):
-    a.append([])
-    b = input().split()
+    b = input("현재 바둑판 입력:").split()
 
     for j in range(19):
         b[j] = int(b[j])
     
-    a[i].append(b)
+    a.append(b)
 
 for x in range(19):
     for y in range(19):
@@ -18,27 +17,28 @@ for x in range(19):
     print()
 
 # 십자 뒤집기 횟수(n)가 입력
-num = int(input())
+num = int(input("뒤집기 횟수:"))
 
 # 십자 뒤집기 좌표가 횟수(n) 만큼 입력된다. 단, n은 10이하의 자연수
 for i in range(num):
-    x, y = map(int, input().split())
+    x, y = map(int, input("좌표:").split())
 
     # 가로줄 십자 뒤집기
-    for h in a[x]:
-        if(a[x] == 1):
-            a[x] = 0
+    for h in range(19):
+        if(a[x-1][h] == 1):
+            a[x-1][h] = 0
         else:
-            a[x] = 1
+            a[x-1][h] = 1
 
     # 세로줄 십자 뒤집기
     for v in range(19):
-        if(a[v][y] == 1):
-            a[v][y] = 0
+        if(a[v][y-1] == 1):
+            a[v][y-1] = 0
         else:
-            a[v][y] = 1
+            a[v][y-1] = 1
 
 # 바둑판 출력
 for x in range(1, 19):
     for y in range(1, 19):
         print(a[x][y], end = ' ')
+    print()
